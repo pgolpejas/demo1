@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jre-alpine
 ARG VERSION
-ARG JAR_FILE=target/demo1-$VERSION.jar
+ARG JAR_FILE=demo1-$VERSION.jar
 
 ADD ${JAR_FILE} app.jar
 
