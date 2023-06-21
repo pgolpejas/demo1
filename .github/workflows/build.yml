@@ -72,7 +72,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: Build the Docker image
-        run:  docker build -t $DOCKER_USER/demo1 --build-arg VERSION=0.0.1-SNAPSHOT .
+        run:  docker build -t ${{secrets.DOCKER_USER}}/demo1 --build-arg VERSION=0.0.1-SNAPSHOT .
 
       - name: Docker Push
         run: docker push ${{secrets.DOCKER_USER}}/demo1
