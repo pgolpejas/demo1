@@ -24,20 +24,11 @@ jobs:
           maven-version: 3.9.2
 
       - name: Get next version
-        uses: reecetech/version-increment@2023.4.1
-        id: version
-        with:
-          scheme: semver
-          increment: patch
-
-      - name: Bump Version
-        id: bump
-        uses: nnichols/maven-version-bump-action@v3
-        with:
-          github-token: ${{ secrets.github_token }}
+        id: get-version
+        uses: jactions/maven-version@v1
 
       - name: Print Version
-        run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
+        run: "echo 'New Version: ${{steps.get-version.outputs.version}}'"
 
       - name: Unit Tests
         run: mvn clean package
