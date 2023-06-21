@@ -27,10 +27,10 @@ jobs:
         run: mvn clean package
 
       - name: Rename the artifact
-        run: cp target/demo1-0.0.1-SNAPSHOT.jar demo-${{ github.sha }}.jar
+        run: cp target/demo1-0.0.1-SNAPSHOT.jar demo1-${{ github.sha }}.jar
 
       - name: Save the artifact
         uses: actions/upload-artifact@master
         with:
           name: demo1
-          path: demo1-${{github.sha }}.jar
+          path: demo1-${{ github.sha }}.jar
