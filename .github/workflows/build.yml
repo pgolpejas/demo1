@@ -23,6 +23,11 @@ jobs:
         with:
           maven-version: 3.9.2
 
+      - uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+
       - name: Unit Tests
         run: mvn clean package
 
